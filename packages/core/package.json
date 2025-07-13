@@ -1,0 +1,34 @@
+{
+  "name": "@seampass/core",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@seampass/shared": "workspace:*",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "@seampass/eslint-config": "workspace:*",
+    "@seampass/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "@types/zxcvbn": "^4.4.5",
+    "eslint": "^9.30.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.6.3"
+  }
+}

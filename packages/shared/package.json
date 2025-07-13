@@ -1,0 +1,37 @@
+{
+  "name": "@seampass/shared",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react-hot-toast": "^2.4.1",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "@seampass/eslint-config": "workspace:*",
+    "@seampass/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "eslint": "^9.30.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
+}
