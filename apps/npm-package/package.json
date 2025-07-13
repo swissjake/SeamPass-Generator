@@ -1,5 +1,5 @@
 {
-  "name": "@seampass/npm-package",
+  "name": "seampass-password-generator",
   "version": "1.0.0",
   "description": "Secure password generation and strength checking",
   "main": "dist/index.js",
@@ -29,7 +29,12 @@
     "memorable",
     "strength"
   ],
-  "author": "Your Name",
+  "author": "Sofiritari Amgbara <sofiriamgbara@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swissjake/SeamPass-Generator"
+  },
+  "homepage": "https://github.com/swissjake/SeamPass-Generator#readme",
   "license": "MIT",
   "devDependencies": {
     "@seampass/eslint-config": "workspace:*",
