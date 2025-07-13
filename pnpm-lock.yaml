@@ -67,6 +67,34 @@ importers:
         specifier: 5.8.2
         version: 5.8.2
 
+  apps/npm-package:
+    dependencies:
+      '@seampass/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@seampass/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+    devDependencies:
+      '@seampass/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@seampass/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
+      eslint:
+        specifier: ^9.30.0
+        version: 9.30.0(jiti@2.4.2)
+      tsup:
+        specifier: ^8.2.4
+        version: 8.5.0(jiti@2.4.2)(postcss@8.5.6)(typescript@5.8.3)(yaml@2.8.0)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.8.3
+
   apps/web:
     dependencies:
       '@seampass/ui':
@@ -127,9 +155,6 @@ importers:
 
   packages/core:
     dependencies:
-      '@seampass/shared':
-        specifier: workspace:*
-        version: link:../shared
       zxcvbn:
         specifier: ^4.4.2
         version: 4.4.2
@@ -137,6 +162,9 @@ importers:
       '@seampass/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@seampass/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@seampass/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config

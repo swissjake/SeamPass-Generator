@@ -14,9 +14,19 @@ export const generateRandomPassword = (options: {
 
   // Secure random number generator
   const secureRandom = (max: number) => {
-    const array = new Uint32Array(1);
-    window.crypto.getRandomValues(array);
-    return (array[0] ?? 0) % max;
+    if (
+      typeof window !== "undefined" &&
+      window.crypto &&
+      window.crypto.getRandomValues
+    ) {
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      return (array[0] ?? 0) % max;
+    } else {
+      // Node.js
+      const { randomInt } = require("crypto");
+      return randomInt(max);
+    }
   };
 
   // Add available options

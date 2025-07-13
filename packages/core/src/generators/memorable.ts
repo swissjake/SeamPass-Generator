@@ -36,7 +36,8 @@ export const generateMemorablePassword = (
   const newPassword: string[] = [];
   for (let i = 0; i < options.wordCount; i++) {
     const randomIndex = Math.floor(Math.random() * wordList.length);
-    const entry = wordList[randomIndex]?.split("\t")[1];
+    const entry =
+      wordList[randomIndex]?.split("\t")[1] || wordList[randomIndex];
     if (entry) {
       const word = transformWord(entry);
       newPassword.push(word);
