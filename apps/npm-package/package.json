@@ -1,10 +1,13 @@
 {
   "name": "seampass-password-generator",
-  "version": "1.0.10",
+  "version": "1.0.13",
   "description": "Secure password generation and strength checking",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "bin": {
+    "seampass": "./bin/seampass.js"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -13,7 +16,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "scripts": {
     "build": "tsup",
