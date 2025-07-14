@@ -34,7 +34,7 @@
     "type": "git",
     "url": "https://github.com/swissjake/SeamPass-Generator"
   },
-  "homepage": "https://github.com/swissjake/SeamPass-Generator#readme",
+  "homepage": "https://github.com/swissjake/SeamPass-Generator/tree/master/apps/npm-package",
   "license": "MIT",
   "devDependencies": {
     "@seampass/eslint-config": "workspace:*",
