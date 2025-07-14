@@ -1,6 +1,6 @@
 {
   "name": "seampass-password-generator",
-  "version": "1.0.0",
+  "version": "1.0.10",
   "description": "Secure password generation and strength checking",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -27,7 +27,15 @@
     "security",
     "random",
     "memorable",
-    "strength"
+    "eff",
+    "wordlist",
+    "crypto",
+    "secure",
+    "authentication",
+    "generate",
+    "login",
+    "passwords",
+    "password-generator"
   ],
   "author": "Sofiritari Amgbara <sofiriamgbara@gmail.com>",
   "repository": {
@@ -43,9 +51,5 @@
     "eslint": "^9.30.0",
     "tsup": "^8.2.4",
     "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "@seampass/shared": "workspace:*",
-    "@seampass/core": "workspace:*"
   }
 }

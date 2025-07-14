@@ -68,13 +68,6 @@ importers:
         version: 5.8.2
 
   apps/npm-package:
-    dependencies:
-      '@seampass/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@seampass/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
     devDependencies:
       '@seampass/eslint-config':
         specifier: workspace:*
