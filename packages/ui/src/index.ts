@@ -10,4 +10,7 @@ export * from "./components/primitives/label";
 export * from "./components/primitives/accordion";
 export * from "./components/passwords/randomPassword";
 export * from "./components/passwords/memorablePassword";
-export * from "./components/passwords/tab";
+export * from "./components/shared/tab";
+export * from "./components/shared/componentVisibility";
+export * from "./components/shared/container";
+export * from "./components/shared/generatorLayout";

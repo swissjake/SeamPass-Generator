@@ -1,0 +1,42 @@
+{
+  "name": "seampass-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension for SeamPass password generator",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.11",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-slider": "^1.3.5",
+    "@radix-ui/react-switch": "^1.2.5",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "@radix-ui/react-tooltip": "^1.2.7",
+    "@types/zxcvbn": "^4.4.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "hugeicons-react": "^0.3.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.5.2",
+    "react-tooltip": "^5.29.1",
+    "tailwind-merge": "^2.2.2",
+    "zxcvbn": "^4.4.2"
+  },
+  "devDependencies": {
+    "@seampass/ui": "workspace:*",
+    "@seampass/tailwind-config": "workspace:*",
+    "@types/chrome": "^0.0.332",
+    "@types/node": "^24.0.13",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5",
+    "vite": "^4.0.0"
+  }
+}

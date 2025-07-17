@@ -11,7 +11,7 @@ const command = args[0];
 
 function showHelp() {
   console.log(`
- SeamPass Password Generator
+SeamPass Password Generator
 
 Usage:
   seampass random [options]     Generate random password
@@ -34,22 +34,49 @@ Examples:
 `);
 }
 
+function parseArgs(args) {
+  const options = {};
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+
+    if (arg === "--length" && i + 1 < args.length) {
+      options.length = parseInt(args[i + 1]);
+      i++; // Skip next argument
+    } else if (arg === "--words" && i + 1 < args.length) {
+      options.words = parseInt(args[i + 1]);
+      i++; // Skip next argument
+    } else if (arg === "--numbers") {
+      options.useNumbers = true;
+    } else if (arg === "--letters") {
+      options.useLetters = true;
+    } else if (arg === "--symbols") {
+      options.useSymbols = true;
+    } else if (arg === "--capitals") {
+      options.useCapitals = true;
+    } else if (arg === "--copy") {
+      options.copy = true;
+    }
+  }
+
+  return options;
+}
+
 function generateRandom() {
+  const parsedArgs = parseArgs(args);
+
   const options = {
-    length:
-      parseInt(
-        args.find((arg) => arg.startsWith("--length="))?.split("=")[1]
-      ) || 16,
-    useNumbers: args.includes("--numbers"),
-    useLetters: args.includes("--letters") || true,
-    useCharacters: args.includes("--symbols"),
-    useCapitals: args.includes("--capitals"),
+    length: parsedArgs.length || 16,
+    useNumbers: parsedArgs.useNumbers || false,
+    useLetters: parsedArgs.useLetters !== false,
+    useCharacters: parsedArgs.useSymbols || false,
+    useCapitals: parsedArgs.useCapitals || false,
   };
 
   const password = generateRandomPassword(options);
   console.log(password);
 
-  if (args.includes("--copy")) {
+  if (parsedArgs.copy) {
     try {
       require("child_process").execSync(`echo "${password}" | pbcopy`);
       console.log("Password copied to clipboard!");
@@ -60,19 +87,19 @@ function generateRandom() {
 }
 
 function generateMemorable() {
+  const parsedArgs = parseArgs(args);
+
   const options = {
-    wordCount:
-      parseInt(args.find((arg) => arg.startsWith("--words="))?.split("=")[1]) ||
-      4,
-    useNumbers: args.includes("--numbers"),
-    useCharacters: args.includes("--symbols"),
-    useUppercase: args.includes("--capitals"),
+    wordCount: parsedArgs.words || 4,
+    useNumbers: parsedArgs.useNumbers || false,
+    useCharacters: parsedArgs.useSymbols || false,
+    useUppercase: parsedArgs.useCapitals || false,
   };
 
   const password = generateMemorablePassword(EFF_WORDLIST, options);
   console.log(password);
 
-  if (args.includes("--copy")) {
+  if (parsedArgs.copy) {
     try {
       require("child_process").execSync(`echo "${password}" | pbcopy`);
       console.log("Password copied to clipboard!");
