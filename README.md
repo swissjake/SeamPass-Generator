@@ -29,6 +29,25 @@ pnpm build
 - **Shared** (`packages/shared`) - Utilities and types
 - **Tailwind Config** (`packages/tailwind-config`) - Shared styling
 
+## 📦 NPM Package
+
+**NPM Package:** [seampass-password-generator](https://www.npmjs.com/package/seampass-password-generator)
+
+**Install:**
+
+```bash
+npm install -g seampass-password-generator
+```
+
+**Usage:**
+
+```bash
+seampass random --length 16
+seampass memorable --words 4
+```
+
+For detailed CLI usage and installation instructions, see the [NPM Package README](apps/npm-package/README.md).
+
 ## 🛠️ Tech Stack
 
 - Next.js, React, TypeScript
