@@ -40,8 +40,6 @@ pnpm build
 
 - `pnpm dev` - Start all apps
 - `pnpm build` - Build all packages
-- `pnpm test` - Run tests
-- `pnpm lint` - Lint code
 
 ## 🤝 Contributing
 
