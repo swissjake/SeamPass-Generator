@@ -15,23 +15,19 @@ pnpm dev
 pnpm build
 ```
 
-## �� Applications
+## Applications
 
 - **Web App** (`apps/web`) - Next.js web application
 - **Extension** (`apps/extension`) - Chrome browser extension
+- **CLI** (`apps/npm-package`) - Command line tool
 - **Docs** (`apps/docs`) - Documentation site
 
-## �� Packages
+## Packages
 
 - **Core** (`packages/core`) - Password generation logic
 - **UI** (`packages/ui`) - React component library
 - **Shared** (`packages/shared`) - Utilities and types
 - **Tailwind Config** (`packages/tailwind-config`) - Shared styling
-
-## �� Related Projects
-
-- **CLI Package**: [github.com/swissjake/SeamPass-Generator](https://github.com/swissjake/SeamPass-Generator/tree/master/apps/npm-package)
-- **NPM Package**: [seampass-password-generator](https://www.npmjs.com/package/seampass-password-generator)
 
 ## 🛠️ Tech Stack
 
