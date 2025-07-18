@@ -1,5 +1,6 @@
 import { Copy01Icon, RefreshIcon } from "hugeicons-react";
 import { Text } from "../shared/text";
+import { useState } from "react";
 
 interface PasswordInputProps {
   handleRefresh: () => void;
@@ -7,6 +8,7 @@ interface PasswordInputProps {
   passwordStrength: string;
   strengthColor: string;
   handleCopy: () => void;
+  isExtension?: boolean;
 }
 
 export const PasswordInput = ({
@@ -16,6 +18,36 @@ export const PasswordInput = ({
   strengthColor,
   handleCopy,
 }: PasswordInputProps) => {
+  const [copyState, setCopyState] = useState<"idle" | "copying" | "copied">(
+    "idle"
+  );
+
+  // Detect if its a browser extension context
+  const isExtension = (() => {
+    try {
+      return (
+        typeof window !== "undefined" &&
+        typeof (window as any).chrome !== "undefined" &&
+        (window as any).chrome?.runtime?.id
+      );
+    } catch {
+      return false;
+    }
+  })();
+
+  const handleCopyClick = async () => {
+    if (isExtension) {
+      setCopyState("copying");
+      handleCopy();
+      setCopyState("copied");
+      setTimeout(() => {
+        setCopyState("idle");
+      }, 2000);
+    } else {
+      handleCopy();
+    }
+  };
+
   return (
     <div>
       <div className="flex items-center border border-grey-200 rounded-[16px] h-[75px] overflow-hidden">
@@ -52,13 +84,26 @@ export const PasswordInput = ({
           <span style={{ color: strengthColor }}>{passwordStrength}</span>
         </div>
         <div
-          onClick={handleCopy}
-          className="flex items-center cursor-pointer w-fit"
+          onClick={handleCopyClick}
+          className="flex items-center cursor-pointer w-fit transition-colors duration-200"
         >
-          <Text size="xl" className="text-primary-500 cursor-pointer underline">
-            Copy
+          <Text
+            size="xl"
+            className={`cursor-pointer underline transition-colors duration-200 ${
+              isExtension && copyState === "copied"
+                ? "text-success-100"
+                : "text-primary-500"
+            }`}
+          >
+            {isExtension && copyState === "copied" ? "Copied!" : "Copy"}
           </Text>
-          <Copy01Icon className="text-primary-500 size-4 ml-1" />
+          <Copy01Icon
+            className={`size-4 ml-1 transition-colors duration-200 ${
+              isExtension && copyState === "copied"
+                ? "text-success-100"
+                : "text-primary-500"
+            }`}
+          />
         </div>
       </div>
     </div>

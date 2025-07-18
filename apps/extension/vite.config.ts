@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import { copyFileSync, mkdirSync } from "fs";
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -37,6 +37,21 @@ export default defineConfig({
         } catch (error) {
           console.log("Cleanup completed");
         }
+
+        // Fix HTML paths for Chrome extension
+        try {
+          const htmlPath = "dist/popup.html";
+          let htmlContent = readFileSync(htmlPath, "utf8");
+
+          // Replace absolute paths with relative paths
+          htmlContent = htmlContent.replace(/src="\//g, 'src="');
+          htmlContent = htmlContent.replace(/href="\//g, 'href="');
+
+          writeFileSync(htmlPath, htmlContent);
+          console.log("Fixed HTML paths for Chrome extension");
+        } catch (error) {
+          console.log("Error fixing HTML paths:", error);
+        }
       },
     },
   ],
@@ -47,6 +62,7 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
+    assetsDir: "",
     rollupOptions: {
       input: {
         popup: resolve(__dirname, "popup.html"),
