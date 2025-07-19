@@ -2,6 +2,8 @@
 
 A comprehensive password generation solution with web app, browser extension, and CLI package.
 
+## 📱 Screenshots
+
 ### Web Application
 
 ![Web App Interface](screenshots/web-app-1.png)
