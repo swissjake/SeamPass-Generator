@@ -2,6 +2,18 @@
 
 A comprehensive password generation solution with web app, browser extension, and CLI package.
 
+### Web Application
+
+![Web App Interface](screenshots/web-app-1.png)
+
+![Web App Interface](screenshots/web-app-2.png)
+
+### Browser Extension
+
+![Extension Popup](screenshots/extension-popup-1.png)
+
+![Extension Popup](screenshots/extension-popup-2.png)
+
 ## 🚀 Quick Start
 
 ```bash
