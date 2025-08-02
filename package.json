@@ -1,5 +1,5 @@
 {
-  "name": "@seampass/ui",
+  "name": "seampass",
   "private": true,
   "scripts": {
     "build": "turbo run build",

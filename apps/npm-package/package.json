@@ -1,7 +1,7 @@
 {
   "name": "seampass-password-generator",
-  "version": "1.0.14",
-  "description": "Secure password generation and strength checking",
+  "version": "1.0.17",
+  "description": "Secure password generation and strength checking by swissjake - Generate random and memorable passwords with CLI support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -39,12 +39,20 @@
     "generate",
     "login",
     "passwords",
-    "password-generator"
+    "password-generator",
+    "swissjake",
+    "seampass"
   ],
-  "author": "Sofiritari Amgbara <sofiriamgbara@gmail.com>",
+  "author": "swissjake (Sofiritari Amgbara) <sofiriamgbara@gmail.com>",
+  "maintainers": [
+    "swissjake <sofiriamgbara@gmail.com>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/swissjake/SeamPass-Generator"
+  },
+  "bugs": {
+    "url": "https://github.com/swissjake/SeamPass-Generator/issues"
   },
   "homepage": "https://github.com/swissjake/SeamPass-Generator/tree/master/apps/npm-package",
   "license": "MIT",

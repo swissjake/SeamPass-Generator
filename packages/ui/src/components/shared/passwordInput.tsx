@@ -1,6 +1,6 @@
 import { Copy01Icon, RefreshIcon } from "hugeicons-react";
 import { Text } from "../shared/text";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 interface PasswordInputProps {
   handleRefresh: () => void;
@@ -23,7 +23,7 @@ export const PasswordInput = ({
   );
 
   // Detect if its a browser extension context
-  const isExtension = (() => {
+  const isExtension = useMemo(() => {
     try {
       return (
         typeof window !== "undefined" &&
@@ -33,7 +33,7 @@ export const PasswordInput = ({
     } catch {
       return false;
     }
-  })();
+  }, []);
 
   const handleCopyClick = async () => {
     if (isExtension) {
@@ -62,7 +62,7 @@ export const PasswordInput = ({
           <div className="active:scale-105 transition-all rotate-45 duration-300">
             <RefreshIcon
               onClick={handleRefresh}
-              className="mx-5 cursor-pointer active:size-10 transition-all active:rotate-180 duration-300"
+              className="mx-5 cursor-pointer text-gray-500   active:size-10 transition-all active:rotate-180 duration-300"
             />
           </div>
         </div>

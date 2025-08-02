@@ -30,7 +30,6 @@
   "devDependencies": {
     "@seampass/eslint-config": "workspace:*",
     "@seampass/typescript-config": "workspace:*",
-    "@seampass/shared": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/zxcvbn": "^4.4.5",
     "eslint": "^9.30.0",
@@ -38,6 +37,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "@seampass/shared": "workspace:*",
     "zxcvbn": "^4.4.2"
   }
 }
