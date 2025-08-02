@@ -3,8 +3,7 @@ import "./globals.css";
 import Navbar from "./components/navbar";
 import { Toaster } from "react-hot-toast";
 import "@seampass/tailwind-config/styles";
-
-// import GoogleAnalytics from "@/components/googleAnalytics";
+import GoogleAnalytics from "./components/googleAnalytics";
 
 export const metadata: Metadata = {
   title:
@@ -88,7 +87,7 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>): JSX.Element {
   return (
     <html lang="en">
       <head>
@@ -181,10 +180,9 @@ export default function RootLayout({
         />
         {children}
 
-        {/* Add Google Analytics */}
-        {/* {GA_MEASUREMENT_ID && (
+        {GA_MEASUREMENT_ID && (
           <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
-        )} */}
+        )}
       </body>
     </html>
   );
