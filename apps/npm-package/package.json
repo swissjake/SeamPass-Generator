@@ -40,12 +40,11 @@
     "login",
     "passwords",
     "password-generator",
-    "swissjake",
     "seampass"
   ],
-  "author": "swissjake (Sofiritari Amgbara) <sofiriamgbara@gmail.com>",
+  "author": "Sofiritari Amgbara <sofiriamgbara@gmail.com> (https://seampass.com)",
   "maintainers": [
-    "swissjake <sofiriamgbara@gmail.com>"
+    "Sofiritari Amgbara <sofiriamgbara@gmail.com>"
   ],
   "repository": {
     "type": "git",
