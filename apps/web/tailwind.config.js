@@ -6,6 +6,12 @@ const config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "data-[state=checked]:bg-primary",
+    "data-[state=unchecked]:bg-input",
+    "data-[state=checked]:translate-x-5",
+    "data-[state=unchecked]:translate-x-0",
+  ],
   theme: {
     container: {
       center: true,

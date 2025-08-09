@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import { Toaster } from "react-hot-toast";
 import "@seampass/tailwind-config/styles";
 import GoogleAnalytics from "./components/googleAnalytics";
+import type { JSX } from "react";
 
 export const metadata: Metadata = {
   title:
