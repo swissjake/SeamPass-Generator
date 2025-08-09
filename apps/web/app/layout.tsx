@@ -78,14 +78,11 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "N-eNClwx7zBFxAzbH914xET9_OVpXXfekifJKKS9QB8",
+    google: process.env.NEXT_PUBLIC_GOOGLE,
   },
 };
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
-
-// Add this debug line temporarily
-console.log("GA_MEASUREMENT_ID:", GA_MEASUREMENT_ID);
 
 export default function RootLayout({
   children,
@@ -95,12 +92,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
         <link
           rel="icon"
           type="image/png"
@@ -112,6 +106,11 @@ export default function RootLayout({
           type="image/png"
           sizes="16x16"
           href="/favicon-16x16.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#1A8CFF" />
