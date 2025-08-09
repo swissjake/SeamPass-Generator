@@ -9,5 +9,8 @@ export default defineConfig((options) => ({
   minify: true,
   clean: true,
   external: ["react", "react-dom", "@seampass/core", "@seampass/shared"],
+  banner: {
+    js: '"use client";',
+  },
   ...options,
 }));
