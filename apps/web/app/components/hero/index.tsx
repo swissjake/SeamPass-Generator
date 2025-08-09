@@ -10,13 +10,10 @@ import {
   GeneratorLayout,
 } from "@seampass/ui";
 import Lock from "../../assets/lock";
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const Hero = () => {
-  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState("random");
-  const type = searchParams.get("type");
 
   return (
     <section className="">

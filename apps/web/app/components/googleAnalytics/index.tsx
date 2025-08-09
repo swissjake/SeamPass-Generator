@@ -1,14 +1,15 @@
 "use client";
 
 import Script from "next/script";
+import type { JSX } from "react";
 
 interface GoogleAnalyticsProps {
   GA_MEASUREMENT_ID: string;
 }
 
-const GoogleAnalytics = ({
+export default function GoogleAnalytics({
   GA_MEASUREMENT_ID,
-}: GoogleAnalyticsProps): JSX.Element => {
+}: GoogleAnalyticsProps): JSX.Element {
   return (
     <>
       <Script
@@ -28,6 +29,4 @@ const GoogleAnalytics = ({
       </Script>
     </>
   );
-};
-
-export default GoogleAnalytics;
+}

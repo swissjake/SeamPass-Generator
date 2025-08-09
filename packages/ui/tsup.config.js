@@ -1,16 +1,18 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig((options) => ({
-  treeshake: true,
-  splitting: true,
+  treeshake: false,
+  splitting: false,
   entry: ["./src/index.ts"],
   format: ["esm", "cjs"],
   dts: true,
-  minify: true,
+  minify: false,
   clean: true,
   external: ["react", "react-dom", "@seampass/core", "@seampass/shared"],
-  banner: {
-    js: '"use client";',
+  esbuildOptions(options) {
+    options.banner = {
+      js: '"use client";',
+    };
   },
   ...options,
 }));
