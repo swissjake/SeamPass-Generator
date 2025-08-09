@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/seampass-password-generator)](https://www.npmjs.com/package/seampass-password-generator)
 [![license](https://img.shields.io/npm/l/seampass-password-generator)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Author](https://img.shields.io/badge/Author-Sofiritari%20Amgbara-blue)](https://github.com/sofiritari)
+[![Author](https://img.shields.io/badge/Author-Sofiritari%20Amgbara-blue)](https://github.com/swissjake)
 
 > **Created by [sofiritari](https://github.com/swissjake)** - A secure and flexible password generation library with CLI support for random and memorable passwords.
 
