@@ -1,6 +1,6 @@
 {
   "name": "seampass-password-generator",
-  "version": "1.0.17",
+  "version": "1.0.19",
   "description": "Secure password generation and strength checking by swissjake - Generate random and memorable passwords with CLI support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
