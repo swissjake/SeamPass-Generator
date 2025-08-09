@@ -1,7 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { generateRandomPassword, checkPasswordStrength } from "@seampass/core";
-import { copyToClipboard } from "@seampass/shared";
+import {
+  copyToClipboard,
+  trackPasswordGeneration,
+  trackPasswordCopy,
+  trackPasswordStrength,
+  trackSettingsChange,
+} from "@seampass/shared";
 import { Slider } from "../primitives/slider";
 import { Text } from "../shared/text";
 import RandomCustomization from "../customizations/random";
@@ -32,6 +38,9 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
       length: passwordLength,
     });
     setPassword(newPassword);
+
+    // Track password generation
+    trackPasswordGeneration("random", { ...options, length: passwordLength });
   };
 
   useEffect(() => {
@@ -43,12 +52,17 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
       const result = checkPasswordStrength(password);
       setPasswordStrength(result.strengthMessage);
       setStrengthColor(result.color);
+
+      // Track password strength
+      trackPasswordStrength(result.strengthMessage, "random");
     }
   }, [password]);
 
   const handleCopy = () => {
     copyToClipboard(password, (success) => {
       if (success) {
+        // Track successful copy
+        trackPasswordCopy("random");
         toast("Copied!", {
           position: "top-center",
           style: { backgroundColor: "#4CAF50", color: "#ffffff" },
@@ -66,11 +80,16 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
     generatePassword();
   };
 
-  const handleOptionChange = (key: keyof typeof options) => {
-    setOptions((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+  // Track settings changes
+  const handleLengthChange = (value: number[]) => {
+    const newLength = value[0] ?? 0;
+    setPasswordLength(newLength);
+    trackSettingsChange("length", newLength, "random");
+  };
+
+  const handleOptionChange = (optionKey: string, value: boolean) => {
+    setOptions((prev) => ({ ...prev, [optionKey]: value }));
+    trackSettingsChange(optionKey, value, "random");
   };
 
   return (
@@ -94,7 +113,7 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
           min={8}
           step={1}
           value={[passwordLength]}
-          onValueChange={(value) => setPasswordLength(value[0] ?? 0)}
+          onValueChange={handleLengthChange}
           className="w-[100%] h-[21px]"
         />
         <Text size="xxl" variant="primary" className="pl-4">
@@ -106,7 +125,10 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
       <RandomCustomization
         options={options}
         onCheckedChange={(key) =>
-          handleOptionChange(key as keyof typeof options)
+          handleOptionChange(
+            key as string,
+            options[key as keyof typeof options]
+          )
         }
       />
     </div>

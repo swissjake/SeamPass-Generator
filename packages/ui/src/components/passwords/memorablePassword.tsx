@@ -4,7 +4,13 @@ import {
   generateMemorablePassword,
   checkPasswordStrength,
 } from "@seampass/core";
-import { copyToClipboard } from "@seampass/shared";
+import {
+  copyToClipboard,
+  trackPasswordGeneration,
+  trackPasswordCopy,
+  trackPasswordStrength,
+  trackSettingsChange,
+} from "@seampass/shared";
 import { PasswordInput } from "../shared/passwordInput";
 import MemorableCustomization from "../customizations/memorable";
 import { Input } from "../primitives/input";
@@ -59,6 +65,9 @@ export const MemorablePassword: React.FC<MemorablePasswordProps> = ({
 
     const newPassword = generateMemorablePassword(wordList, options);
     setPassword(newPassword);
+
+    // Track password generation
+    trackPasswordGeneration("memorable", options);
   };
 
   useEffect(() => {
@@ -70,12 +79,17 @@ export const MemorablePassword: React.FC<MemorablePasswordProps> = ({
       const result = checkPasswordStrength(password);
       setPasswordStrength(result.strengthMessage);
       setStrengthColor(result.color);
+
+      // Track password strength
+      trackPasswordStrength(result.strengthMessage, "memorable");
     }
   }, [password]);
 
   const handleCopy = () => {
     copyToClipboard(password, (success) => {
       if (success) {
+        // Track successful copy
+        trackPasswordCopy("memorable");
         toast("Copied!", {
           position: "top-center",
           style: { backgroundColor: "#4CAF50", color: "#ffffff" },
@@ -99,8 +113,19 @@ export const MemorablePassword: React.FC<MemorablePasswordProps> = ({
     const newLength = parseInt(event.target.value, 10);
     if (!isNaN(newLength) && newLength >= 1 && newLength <= 10) {
       setWordCount(newLength);
+      // Track word count change
+      trackSettingsChange("wordCount", newLength, "memorable");
     }
   };
+
+  // Track custom options changes
+  useEffect(() => {
+    // Track custom options changes
+    customOptions.forEach((option) => {
+      const optionKey = option.text.toLowerCase().replace(" ", "_");
+      trackSettingsChange(optionKey, option.isTrue, "memorable");
+    });
+  }, [customOptions]);
 
   return (
     <div className={className}>
