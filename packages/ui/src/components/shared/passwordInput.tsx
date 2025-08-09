@@ -1,6 +1,6 @@
 "use client";
 
-import { Copy01Icon } from "hugeicons-react";
+import { Copy01Icon, RefreshIcon } from "hugeicons-react";
 import { Text } from "../shared/text";
 import { useMemo, useState } from "react";
 
@@ -61,12 +61,12 @@ export const PasswordInput = ({
         />
         <div className="flex items-center">
           <div className="h-[46px] w-fit border border-grey-200" />
-          {/* <div className="active:scale-105 transition-all rotate-45 duration-300">
-            <Reload01Icon
+          <div className="active:scale-105 transition-all rotate-45 duration-300">
+            <RefreshIcon
               onClick={handleRefresh}
               className="mx-5 cursor-pointer text-gray-500   active:size-10 transition-all active:rotate-180 duration-300"
             />
-          </div> */}
+          </div>
         </div>
       </div>
 

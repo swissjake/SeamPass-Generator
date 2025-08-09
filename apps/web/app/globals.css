@@ -1,12 +1,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --input: 210 40% 90%;
+  --primary: 209 85% 51%;
+  --ring: 209 85% 51%;
+  --border: 210 40% 80%;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --input: 217 19% 27%;
+    --primary: 209 85% 51%;
+    --ring: 209 85% 51%;
+    --border: 217 19% 35%;
   }
 }
 
