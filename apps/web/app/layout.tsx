@@ -161,15 +161,6 @@ export default function RootLayout({
             }),
           }}
         />
-
-        {/* Add debug info to page source */}
-        {process.env.NODE_ENV === "development" && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `console.log('Debug - GA ID:', '${GA_MEASUREMENT_ID}');`,
-            }}
-          />
-        )}
       </head>
       <body>
         <Navbar />
