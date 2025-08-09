@@ -85,7 +85,7 @@ const Hero = () => {
           </div>
           <div className="p-4">
             <h2 className="text-lg font-semibold text-gray-800 mb-2">
-              Customizable
+              🎯 Customizable
             </h2>
             <p className="text-sm text-gray-600">
               Customize your passwords with length, character types, and
