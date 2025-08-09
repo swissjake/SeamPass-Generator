@@ -84,6 +84,9 @@ export const metadata: Metadata = {
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 
+// Add this debug line temporarily
+console.log("GA_MEASUREMENT_ID:", GA_MEASUREMENT_ID);
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -159,6 +162,15 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* Add debug info to page source */}
+        {process.env.NODE_ENV === "development" && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `console.log('Debug - GA ID:', '${GA_MEASUREMENT_ID}');`,
+            }}
+          />
+        )}
       </head>
       <body>
         <Navbar />
@@ -181,8 +193,15 @@ export default function RootLayout({
         />
         {children}
 
-        {GA_MEASUREMENT_ID && (
+        {GA_MEASUREMENT_ID ? (
           <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+        ) : (
+          // Add this temporarily to debug
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `console.log('GA_MEASUREMENT_ID is missing or empty');`,
+            }}
+          />
         )}
       </body>
     </html>
