@@ -127,7 +127,7 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
         onCheckedChange={(key) =>
           handleOptionChange(
             key as string,
-            options[key as keyof typeof options]
+            !options[key as keyof typeof options] // Toggle the current value
           )
         }
       />
