@@ -25,7 +25,7 @@ const MobileNav = () => {
           <div className="flex items-center gap-1.5">
             {/* GitHub Link */}
             <a
-              href="https://github.com/swissjake/seamPass"
+               href="https://github.com/swissjake/SeamPass-Generator"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
