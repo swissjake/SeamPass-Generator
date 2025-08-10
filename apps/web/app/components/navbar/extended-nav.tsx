@@ -3,15 +3,12 @@ import React from "react";
 import { ContainerLayout } from "@seampass/ui";
 import Image from "next/image";
 import logo from "../../assets/logo/logo.svg";
-// import { Button } from "../button";
-// import auth from "@/utils/auth";
+import { Icons } from "../icons";
 
 const ExtendedNav = () => {
-  // const { handleLogin, handleCreateAccount } = auth();
-
   return (
     <ContainerLayout>
-      <div className="flex !h-[77px]  justify-between items-center pt-2  ">
+      <div className="flex !h-[77px] justify-between items-center pt-2">
         <Image
           src={logo}
           width={140}
@@ -19,15 +16,33 @@ const ExtendedNav = () => {
           alt="logo"
           className="w-[120px] md:w-[140px] lg:w-[160px] h-auto"
         />
-        <div></div>
-        {/* <div className="w-fit flex items-center gap-[10px] ">
-          <Button onClick={handleLogin} variant="tertiary" className="!w-fit px-8">
-            Log in
-          </Button>
-          <Button onClick={handleCreateAccount} variant="primary" className="!w-fit px-4">
-            Create account
-          </Button>
-        </div> */}
+
+        {/* Social Links */}
+        <div className="flex items-center gap-2.5">
+          {/* GitHub Link */}
+          <a
+            href="https://github.com/swissjake/SeamPass-Generator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label="View on GitHub"
+            title="GitHub"
+          >
+            <Icons.Github className="w-6 h-6 text-gray-700 hover:text-black" />
+          </a>
+
+          {/* NPM Link */}
+          <a
+            href="https://www.npmjs.com/package/seampass-password-generator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label="View on NPM"
+            title="NPM"
+          >
+            <Icons.npm className="w-6 h-6 text-red-600" />
+          </a>
+        </div>
       </div>
     </ContainerLayout>
   );

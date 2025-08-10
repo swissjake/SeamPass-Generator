@@ -4,6 +4,7 @@ import { ContainerLayout, ComponentVisibility } from "@seampass/ui";
 import Image from "next/image";
 import logo from "../../assets/logo/logo.svg";
 import { ArrowLeft01Icon } from "hugeicons-react";
+import { Icons } from "../icons";
 
 const MobileNav = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -11,7 +12,7 @@ const MobileNav = () => {
   return (
     <ContainerLayout>
       <>
-        <div className="flex !h-[77px]  justify-between items-center   ">
+        <div className="flex !h-[77px] justify-between items-center">
           <Image
             src={logo}
             width={120}
@@ -19,17 +20,30 @@ const MobileNav = () => {
             className="object-contain"
             alt="logo"
           />
-          <div className="w-fit flex items-center gap-[10px] ">
-            {/* <ComponentVisibility appear={!showMenu}>
-              <Button
-                onClick={() => {
-                  setShowMenu(true);
-                }}
-                className="!size-10 rounded-full bg-[#F6F6F6] flex justify-center items-center"
-              >
-                <Menu02Icon />
-              </Button>
-            </ComponentVisibility> */}
+
+          {/* Social Links for Mobile */}
+          <div className="flex items-center gap-1.5">
+            {/* GitHub Link */}
+            <a
+              href="https://github.com/swissjake/seamPass"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="View on GitHub"
+            >
+              <Icons.Github className="size-5 text-gray-700" />
+            </a>
+
+            {/* NPM Link */}
+            <a
+              href="https://www.npmjs.com/package/seampass-password-generator"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="View on NPM"
+            >
+              <Icons.npm className="size-5 text-red-600" />
+            </a>
           </div>
         </div>
 
@@ -43,22 +57,6 @@ const MobileNav = () => {
                 <ArrowLeft01Icon />
                 Go back
               </span>
-              {/* <div className=" flex flex-col gap-[16px] mt-4 ">
-                <Button
-                  onClick={handleLogin}
-                  variant="tertiary"
-                  className=" px-8"
-                >
-                  Log in
-                </Button>
-                <Button
-                  onClick={handleCreateAccount}
-                  variant="primary"
-                  className=" px-4"
-                >
-                  Create account
-                </Button>
-              </div> */}
             </div>
           </div>
         </ComponentVisibility>
