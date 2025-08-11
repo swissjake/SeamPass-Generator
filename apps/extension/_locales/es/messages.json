@@ -1,0 +1,68 @@
+{
+  "extensionName": {
+    "message": "SeamPass Generador de Contraseñas"
+  },
+  "extensionDescription": {
+    "message": "Genera contraseñas seguras aleatorias y memorables"
+  },
+  "title": {
+    "message": "SeamPass Generador de Contraseñas"
+  },
+  "randomTab": {
+    "message": "Aleatoria"
+  },
+  "memorableTab": {
+    "message": "Memorable"
+  },
+  "passwordLength": {
+    "message": "Longitud de Contraseña"
+  },
+  "useNumbers": {
+    "message": "Usar números"
+  },
+  "useLetters": {
+    "message": "Usar letras"
+  },
+  "useCharacters": {
+    "message": "Usar caracteres"
+  },
+  "useCapitals": {
+    "message": "Usar mayúsculas"
+  },
+  "copy": {
+    "message": "Copiar"
+  },
+  "copied": {
+    "message": "¡Copiado!"
+  },
+  "strong": {
+    "message": "Fuerte"
+  },
+  "medium": {
+    "message": "Medio"
+  },
+  "weak": {
+    "message": "Débil"
+  },
+  "useNumbersTooltip": {
+    "message": "Add numbers (0-9) to strengthen the password."
+  },
+  "useLettersTooltip": {
+    "message": "Use a mix of upper (A-Z) and lower (a-z) case letters."
+  },
+  "useCharactersTooltip": {
+    "message": "Add symbols (e.g., @, #, $) for extra security."
+  },
+  "useCapitalsTooltip": {
+    "message": "Capitals (A-Z) to strengthen the password."
+  },
+  "useNumberMemorableTooltip": {
+    "message": "Include numbers (0-9) to make your password stronger."
+  },
+  "useCharactersMemorableTooltip": {
+    "message": "Use symbols like @, #, $ to add complexity to your password."
+  },
+  "useUppercaseMemorableTooltip": {
+    "message": "Capital letters (A-Z) can help secure your password further."
+  }
+}

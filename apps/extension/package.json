@@ -4,7 +4,7 @@
   "description": "Chrome extension for SeamPass password generator",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp -r _locales dist/",
     "preview": "vite preview"
   },
   "dependencies": {

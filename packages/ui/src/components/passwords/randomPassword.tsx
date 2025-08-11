@@ -13,6 +13,7 @@ import { Text } from "../shared/text";
 import RandomCustomization from "../customizations/random";
 import toast from "react-hot-toast";
 import { PasswordInput } from "../shared/passwordInput";
+import { useTranslations } from "../../contexts/i18nContext";
 
 interface RandomPasswordProps {
   className?: string;
@@ -21,6 +22,7 @@ interface RandomPasswordProps {
 export const RandomPassword: React.FC<RandomPasswordProps> = ({
   className,
 }) => {
+  const t = useTranslations();
   const [password, setPassword] = useState<string>("");
   const [passwordLength, setPasswordLength] = useState<number>(12);
   const [passwordStrength, setPasswordStrength] = useState<string>("");
@@ -63,7 +65,7 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
       if (success) {
         // Track successful copy
         trackPasswordCopy("random");
-        toast("Copied!", {
+        toast(t.copied, {
           position: "top-center",
           style: { backgroundColor: "#4CAF50", color: "#ffffff" },
         });
@@ -105,7 +107,7 @@ export const RandomPassword: React.FC<RandomPasswordProps> = ({
 
       {/* Password Length Slider */}
       <Text size="xxl" variant="primary" className="mt-[10px]">
-        Password Length
+        {t.passwordLength}
       </Text>
       <div className="flex items-center mt-4">
         <Slider

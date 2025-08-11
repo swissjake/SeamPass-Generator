@@ -15,6 +15,7 @@ import { PasswordInput } from "../shared/passwordInput";
 import MemorableCustomization from "../customizations/memorable";
 import { Input } from "../primitives/input";
 import toast from "react-hot-toast";
+import { useTranslations } from "../../contexts/i18nContext";
 
 interface MemorablePasswordProps {
   className?: string;
@@ -23,15 +24,16 @@ interface MemorablePasswordProps {
 export const MemorablePassword: React.FC<MemorablePasswordProps> = ({
   className,
 }) => {
+  const t = useTranslations();
   const [password, setPassword] = useState<string>("");
   const [wordList, setWordList] = useState<string[]>([]);
   const [wordCount, setWordCount] = useState<number>(3);
   const [passwordStrength, setPasswordStrength] = useState<string>("");
   const [strengthColor, setStrengthColor] = useState<string>("");
   const [customOptions, setCustomOptions] = useState([
-    { text: "Use number", isTrue: false },
-    { text: "Use characters", isTrue: false },
-    { text: "Use Uppercase", isTrue: false },
+    { text: t.useNumber, isTrue: false },
+    { text: t.useCharacters, isTrue: false },
+    { text: t.useUppercase, isTrue: false },
   ]);
 
   // Load word list
@@ -53,12 +55,12 @@ export const MemorablePassword: React.FC<MemorablePasswordProps> = ({
 
     const options = {
       useNumbers:
-        customOptions.find((opt) => opt.text === "Use number")?.isTrue ?? false,
+        customOptions.find((opt) => opt.text === t.useNumber)?.isTrue ?? false,
       useCharacters:
-        customOptions.find((opt) => opt.text === "Use characters")?.isTrue ??
+        customOptions.find((opt) => opt.text === t.useCharacters)?.isTrue ??
         false,
       useUppercase:
-        customOptions.find((opt) => opt.text === "Use Uppercase")?.isTrue ??
+        customOptions.find((opt) => opt.text === t.useUppercase)?.isTrue ??
         false,
       wordCount,
     };
@@ -90,7 +92,7 @@ export const MemorablePassword: React.FC<MemorablePasswordProps> = ({
       if (success) {
         // Track successful copy
         trackPasswordCopy("memorable");
-        toast("Copied!", {
+        toast(t.copied, {
           position: "top-center",
           style: { backgroundColor: "#4CAF50", color: "#ffffff" },
         });
@@ -141,7 +143,7 @@ export const MemorablePassword: React.FC<MemorablePasswordProps> = ({
       <div className="mt-[10px]">
         <Input
           className="w-[133px] h-[37px] text-[20px] text-grey-100"
-          label="Number of words"
+          label={t.numberOfWords}
           type="number"
           value={wordCount.toString()}
           onChange={handlePasswordLengthChange}

@@ -1,0 +1,65 @@
+{
+  "extensionName": {
+    "message": "SeamPass Password Generator"
+  },
+  "extensionDescription": {
+    "message": "Generate secure random and memorable passwords"
+  },
+  "title": {
+    "message": "SeamPass Password Generator"
+  },
+  "randomTab": {
+    "message": "Random"
+  },
+  "memorableTab": {
+    "message": "Memorable"
+  },
+  "passwordLength": {
+    "message": "Password Length"
+  },
+  "useNumbers": {
+    "message": "Use numbers"
+  },
+  "useLetters": {
+    "message": "Use letters"
+  },
+  "useCharacters": {
+    "message": "Use characters"
+  },
+  "useCapitals": {
+    "message": "Use capitals"
+  },
+  "copy": {
+    "message": "Copy"
+  },
+  "copied": {
+    "message": "Copied!"
+  },
+  "strong": {
+    "message": "Strong"
+  },
+  "medium": {
+    "message": "Medium"
+  },
+  "weak": {
+    "message": "Weak"
+  },
+  "numberOfWords": {
+    "message": "Number of words"
+  },
+  "useNumber": {
+    "message": "Use number"
+  },
+  "useUppercase": {
+    "message": "Use Uppercase"
+  },
+  "useNumbersTooltip": {
+    "message": "Add numbers (0-9) to strengthen the password."
+  },
+  "useLettersTooltip": {
+    "message": "Use a mix of upper (A-Z) and lower (a-z) case letters."
+  },
+  "useCharactersTooltip": {
+    "message": "Add symbols (e.g., @, #, $) for extra security."
+  }
+}

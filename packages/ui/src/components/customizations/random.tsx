@@ -2,6 +2,7 @@ import { InformationDiamondIcon } from "hugeicons-react";
 import { Tooltip } from "react-tooltip";
 import { Switch } from "../primitives/switch";
 import { Text } from "../shared/text";
+import { useTranslations } from "../../contexts/i18nContext";
 
 type CustomizationPasswordProps = {
   options: { [key: string]: boolean };
@@ -21,31 +22,33 @@ const RandomCustomization: React.FC<CustomizationPasswordProps> = ({
   options,
   onCheckedChange,
 }) => {
+  const t = useTranslations();
+
   const tooltipsInfo: TooltipsInfo = {
     useNumbers: {
-      header: "Numeric Characters",
-      message: "Add numbers (0-9) to strengthen the password.",
+      header: t.useNumbers,
+      message: t.useNumbersTooltip,
     },
     useLetters: {
-      header: "Letters",
-      message: "Use a mix of upper (A-Z) and lower (a-z) case letters.",
+      header: t.useLetters,
+      message: t.useLettersTooltip,
     },
     useCharacters: {
-      header: "Special Characters",
-      message: "Add symbols (e.g., @, #, $) for extra security.",
+      header: t.useCharacters,
+      message: t.useCharactersTooltip,
     },
     useCapitals: {
-      header: "Capital Letters",
-      message: "Capitals (A-Z) to strengthen the password.",
+      header: t.useCapitals,
+      message: t.useCapitalsTooltip,
     },
   };
 
   // Map the option keys to display names
   const optionDisplayNames = {
-    useNumbers: "Use numbers",
-    useLetters: "Use letters",
-    useCharacters: "Use characters",
-    useCapitals: "Use capitals",
+    useNumbers: t.useNumbers,
+    useLetters: t.useLetters,
+    useCharacters: t.useCharacters,
+    useCapitals: t.useCapitals,
   };
 
   return (

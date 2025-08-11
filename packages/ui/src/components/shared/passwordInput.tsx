@@ -3,6 +3,7 @@
 import { Copy01Icon, RefreshIcon } from "hugeicons-react";
 import { Text } from "../shared/text";
 import { useMemo, useState } from "react";
+import { useTranslations } from "../../contexts/i18nContext";
 
 interface PasswordInputProps {
   handleRefresh: () => void;
@@ -20,6 +21,8 @@ export const PasswordInput = ({
   strengthColor,
   handleCopy,
 }: PasswordInputProps) => {
+  const t = useTranslations();
+
   const [copyState, setCopyState] = useState<"idle" | "copying" | "copied">(
     "idle"
   );
@@ -51,7 +54,7 @@ export const PasswordInput = ({
   };
 
   return (
-    <div>
+    <div className="w-full">
       <div className="flex items-center border border-grey-200 rounded-[16px] h-[75px] overflow-hidden">
         <input
           readOnly
@@ -97,7 +100,7 @@ export const PasswordInput = ({
                 : "text-primary-500"
             }`}
           >
-            {isExtension && copyState === "copied" ? "Copied!" : "Copy"}
+            {isExtension && copyState === "copied" ? t.copied : t.copy}
           </Text>
           <Copy01Icon
             className={`size-4 ml-1 transition-colors duration-200 ${

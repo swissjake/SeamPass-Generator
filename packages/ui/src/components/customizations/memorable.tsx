@@ -2,6 +2,7 @@ import { InformationDiamondIcon } from "hugeicons-react";
 import { Tooltip } from "react-tooltip";
 import { Switch } from "../primitives/switch";
 import { Text } from "../shared/text";
+import { useTranslations } from "../../contexts/i18nContext";
 
 interface CustomizationProps {
   options: {
@@ -31,6 +32,8 @@ const Customization: React.FC<CustomizationProps> = ({
   setOptions,
   options,
 }) => {
+  const t = useTranslations();
+
   const handleChecked = (index: number) => {
     setOptions((prev) =>
       prev.map((item, idx) =>
@@ -40,17 +43,17 @@ const Customization: React.FC<CustomizationProps> = ({
   };
 
   const tooltipsInfo: TooltipsInfo = {
-    "Use number": {
-      header: "Numeric Characters",
-      message: "Include numbers (0-9) to make your password stronger.",
+    [t.useNumber]: {
+      header: t.useNumber,
+      message: t.useNumberMemorableTooltip,
     },
-    "Use characters": {
-      header: "Special Characters",
-      message: "Use symbols like @, #, $ to add complexity to your password.",
+    [t.useCharacters]: {
+      header: t.useCharacters,
+      message: t.useCharactersMemorableTooltip,
     },
-    "Use Uppercase": {
-      header: "Uppercase Letters",
-      message: "Capital letters (A-Z) can help secure your password further.",
+    [t.useUppercase]: {
+      header: t.useUppercase,
+      message: t.useUppercaseMemorableTooltip,
     },
   };
 
@@ -66,6 +69,7 @@ const Customization: React.FC<CustomizationProps> = ({
             <Text size="xxl" variant="primary-200">
               {item.text}
             </Text>
+
             <a data-tooltip-id={`tooltip-${index}`}>
               <InformationDiamondIcon className="size-5 text-[#197CE2] cursor-pointer" />
             </a>

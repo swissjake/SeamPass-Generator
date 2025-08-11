@@ -14,3 +14,6 @@ export * from "./components/shared/tab";
 export * from "./components/shared/componentVisibility";
 export * from "./components/shared/container";
 export * from "./components/shared/generatorLayout";
+export { I18nProvider, useTranslations } from "./contexts/i18nContext";
+export type { Translations } from "./contexts/i18nContext";
+export { defaultTranslations } from "./contexts/i18nContext";

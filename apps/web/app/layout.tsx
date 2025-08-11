@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import { Toaster } from "react-hot-toast";
 import "@seampass/tailwind-config/styles";
 import GoogleAnalytics from "./components/googleAnalytics";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import type { JSX } from "react";
 
 export const metadata: Metadata = {
@@ -163,36 +164,38 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Navbar />
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            success: {
-              style: {
-                background: "#4CAF50",
-                color: "#FFFFFF",
+        <LanguageProvider>
+          <Navbar />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              success: {
+                style: {
+                  background: "#4CAF50",
+                  color: "#FFFFFF",
+                },
               },
-            },
-            error: {
-              style: {
-                background: "#EFEFEF",
-                color: "#BE2921",
+              error: {
+                style: {
+                  background: "#EFEFEF",
+                  color: "#BE2921",
+                },
               },
-            },
-          }}
-        />
-        {children}
-
-        {GA_MEASUREMENT_ID ? (
-          <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
-        ) : (
-          // Add this temporarily to debug
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `console.log('GA_MEASUREMENT_ID is missing or empty');`,
             }}
           />
-        )}
+          {children}
+
+          {GA_MEASUREMENT_ID ? (
+            <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID} />
+          ) : (
+            // Add this temporarily to debug
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `console.log('GA_MEASUREMENT_ID is missing or empty');`,
+              }}
+            />
+          )}
+        </LanguageProvider>
       </body>
     </html>
   );
