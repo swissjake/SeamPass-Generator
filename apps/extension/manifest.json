@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
   "name": "SeamPass Password Generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate secure random and memorable passwords",
-  "permissions": ["clipboardWrite", "clipboardRead", "activeTab"],
+  "permissions": ["clipboardWrite", "clipboardRead", "activeTab", "storage"],
+  "host_permissions": ["https://www.google-analytics.com/*"],
   "web_accessible_resources": [
     {
       "resources": ["eff_large_wordlist.txt"],
